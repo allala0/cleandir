@@ -1,6 +1,6 @@
 {
   "name": "clear-directory",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Clean your directory with Node.js",
   "scripts": {
 
