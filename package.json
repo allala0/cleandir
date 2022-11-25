@@ -1,0 +1,29 @@
+{
+  "name": "clear-directory",
+  "version": "1.0.0",
+  "description": "Clean your directory with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allala0/clear-directory.git"
+  },
+  "keywords": [
+    "clear-dir",
+    "cleandir",
+    "cleardir",
+    "clean-dir",
+    "clear",
+    "dir",
+    "directory",
+    "clear-directory"
+  ],
+  "author": "Artur Brytkowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allala0/clear-directory/issues"
+  },
+  "homepage": "https://github.com/allala0/clear-directory#readme"
+}

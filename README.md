@@ -1,1 +1,1 @@
-"# cleandir" 
+clear-directory
