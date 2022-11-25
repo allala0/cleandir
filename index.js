@@ -15,18 +15,18 @@ if(process?.argv[2] === undefined){
 const dir = path.resolve(process.cwd(), directory);
 
 
-const deleteFolderRecursive = function (directoryPath) {
+const deleteFolderRecursive = function (directoryPath, notFirstCall=false) {
 if (fs.existsSync(directoryPath)) {
     fs.readdirSync(directoryPath).forEach((file, index) => {
       const curPath = path.join(directoryPath, file);
       if (fs.lstatSync(curPath).isDirectory()) {
-        deleteFolderRecursive(curPath);
+        deleteFolderRecursive(curPath, true);
       } else {
         fs.unlinkSync(curPath);
       }
     });
     try{
-        fs.rmdirSync(directoryPath);
+        if(notFirstCall) fs.rmdirSync(directoryPath);
     }
     catch{}
   }
