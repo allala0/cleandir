@@ -1,14 +1,21 @@
-<h1 align="center">clear-directory</h1>
+<h1 align="center"><b>clear-directory</b></h1>
 
-Clear you directory in Node.js
+Clear you directory from terminal or Node.js script.
 
-<h2>How to install</h2>
+<h2><b>How to install</b></h2>
 
     npm install clear-directory
 
-<h2>How to use</h2>
+<h2><b>How to use</b></h2>
+<h3><b>In terminal:</b></h3>
 
-    cdir "directory path"
+    cdir 'directory_path'
+
+<h3><b>In Node.js script:</b></h3>
+
+    const cdir = require('clear-directory');
+    cdir('./test_directory');
+
 
 Creator: <b>Artur Brytkowski</b> 
  - <a target="_blank" href="https://www.fiverr.com/arturbrytkowski">Fiverr</a>

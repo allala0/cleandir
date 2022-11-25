@@ -5,22 +5,12 @@
 const fs = require('fs');
 const path = require('path');
 
-let directory = process.argv[2];
-
-if(process?.argv[2] === undefined){
-    console.log('Provide directory as argument.');
-    return;
-}
-
-const dir = path.resolve(process.cwd(), directory);
-
-
-const deleteFolderRecursive = function (directoryPath, notFirstCall=false) {
+const clearDirectoryRecursive = function (directoryPath, notFirstCall=false) {
 if (fs.existsSync(directoryPath)) {
     fs.readdirSync(directoryPath).forEach((file, index) => {
       const curPath = path.join(directoryPath, file);
       if (fs.lstatSync(curPath).isDirectory()) {
-        deleteFolderRecursive(curPath, true);
+        clearDirectoryRecursive(curPath, true);
       } else {
         fs.unlinkSync(curPath);
       }
@@ -32,4 +22,15 @@ if (fs.existsSync(directoryPath)) {
   }
 };
 
-deleteFolderRecursive(dir);
+let directory = process?.argv[2];
+
+if(directory !== undefined){
+  clearDirectoryRecursive(path.resolve(require.main === module ? __dirname : process.cwd(), directory));
+  console.log('Directory cleared.')
+}
+else if (require.main === module) {
+  console.log('Please provide directory as argument.');
+} 
+else {
+  module.exports = clearDirectoryRecursive;
+} 
