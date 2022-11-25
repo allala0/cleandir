@@ -25,11 +25,12 @@ if (fs.existsSync(directoryPath)) {
 let directory = process?.argv[2];
 
 if(directory !== undefined){
-  clearDirectoryRecursive(path.resolve(require.main === module ? __dirname : process.cwd(), directory));
+  clearDirectoryRecursive(path.resolve(require.main === module ? process.cwd() : __dirname, directory));
   console.log('Directory cleared.')
 }
 else if (require.main === module) {
   console.log('Please provide directory as argument.');
+  console.log(require.main === module ? process.cwd() : __dirname)
 } 
 else {
   module.exports = clearDirectoryRecursive;
