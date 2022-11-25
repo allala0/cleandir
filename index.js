@@ -2,8 +2,8 @@
 
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
-const fs = require("fs");
 
 let directory = process.argv[2];
 
@@ -12,13 +12,24 @@ if(process?.argv[2] === undefined){
     return;
 }
 
-const dir = path.resolve(process.cwd(), directory)
-fs.readdir(dir, (err, files) => {
-    if (err) throw err;
+const dir = path.resolve(process.cwd(), directory);
 
-    for (const file of files) {
-    fs.unlink(path.join(dir, file), (err) => {
-        if (err) throw err;
+
+const deleteFolderRecursive = function (directoryPath) {
+if (fs.existsSync(directoryPath)) {
+    fs.readdirSync(directoryPath).forEach((file, index) => {
+      const curPath = path.join(directoryPath, file);
+      if (fs.lstatSync(curPath).isDirectory()) {
+        deleteFolderRecursive(curPath);
+      } else {
+        fs.unlinkSync(curPath);
+      }
     });
+    try{
+        fs.rmdirSync(directoryPath);
     }
-});
+    catch{}
+  }
+};
+
+deleteFolderRecursive(dir);
