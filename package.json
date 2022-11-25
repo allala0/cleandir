@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/allala0/clear-directory/issues"
   },
+  "bin": {
+    "cleandir": "index.js"
+  },
   "homepage": "https://github.com/allala0/clear-directory#readme"
 }
