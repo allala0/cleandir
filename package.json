@@ -1,10 +1,9 @@
 {
   "name": "clear-directory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Clean your directory with Node.js",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "repository": {
     "type": "git",
@@ -28,5 +27,8 @@
   "bin": {
     "cdir": "index.js"
   },
+  "files": [
+    "index.js"
+  ],
   "homepage": "https://github.com/allala0/clear-directory#readme"
 }
