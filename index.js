@@ -7,13 +7,12 @@ const fs = require("fs");
 
 let directory = process.argv[2];
 
-if(process?.argv[2] === undefined || process?.argv[2].replaceAll(' ', '') === ''){
+if(process?.argv[2] === undefined){
     console.log('Provide directory as argument.');
     return;
 }
-console.log('+' + process?.argv[2] + '+')
 
-const dir = path.resolve(__dirname, directory)
+const dir = path.resolve(process.cwd(), directory)
 fs.readdir(dir, (err, files) => {
     if (err) throw err;
 
